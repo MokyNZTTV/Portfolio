@@ -1,0 +1,125 @@
+---
+import photos from '../../data/photos.js';
+
+export async function getStaticPaths() {
+  return photos.map(photo => ({
+    params: { slug: photo.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const photo = photos.find(p => p.slug === slug);
+if (!photo) throw new Error(`Photo not found: ${slug}`);
+---
+
+<html>
+  <head>
+    <title>{photo.title}</title>
+    <style>
+      body {
+        background: #000;
+        color: #eee;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #ddd;
+        font-family: sans-serif;
+        background: #111;
+      }
+
+      .site-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #eee;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #eee;
+        font-weight: 600;
+        margin-left: 1.5rem;
+      }
+
+      nav a:hover {
+        color: #66ccff;
+      }
+
+      main {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 1rem;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 0.4rem;
+      }
+
+      a.download-btn {
+        display: inline-block;
+        margin-top: 1rem;
+        background: #66ccff;
+        color: #000;
+        padding: 0.8rem 1.2rem;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      a.download-btn:hover {
+        background: #5599dd;
+      }
+
+      a.back-link {
+        color: #66ccff;
+        display: inline-block;
+        margin-bottom: 1rem;
+        text-decoration: none;
+      }
+
+      a.back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="site-title">Portfolio</div>
+      <nav>
+        <a href="/">Gallery</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <a class="back-link" href="/">&larr; Back to Gallery</a>
+      <h1>{photo.title}</h1>
+      <img src={photo.image} alt={photo.title} />
+      <p>{photo.description}</p>
+      <h2>Shot Info</h2>
+      <ul>
+        <li><strong>Camera:</strong> {photo.camera}</li>
+        <li><strong>Lens:</strong> {photo.lens}</li>
+        <li><strong>Exposure:</strong> {photo.exposure}</li>
+        <li><strong>Aperture:</strong> {photo.aperture}</li>
+        <li><strong>ISO:</strong> {photo.iso}</li>
+        <li><strong>Date:</strong> {photo.date}</li>
+      </ul>
+      <a class="download-btn" href={photo.image} download>Download Photo</a>
+    </main>
+  </body>
+</html>
