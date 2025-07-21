@@ -15,7 +15,7 @@ export default [
   {
     slug: 'milky_way_actually_good',
     title: 'theres a milk in the way',
-    image: '/images/milky_way_actually_good/jpg',
+    image: '/images/milky_way_actually_decent.jpg',
     description: 'I figured out how to edit properly :)',
     camera: 'Canon EOS 1000D',
     lens: 'Canon 18mm f/3.5 IS',
