@@ -109,7 +109,7 @@ if (!photo) throw new Error(`Photo not found: ${slug}`);
       <a class="back-link" href="/">&larr; Back to Gallery</a>
       <h1>{photo.title}</h1>
       <img src={photo.image} alt={photo.title} />
-      <p>{photo.description}</p>
+      <p set:html={photo.description}></p>
       <h2>Shot Info</h2>
       <ul>
         <li><strong>Camera:</strong> {photo.camera}</li>
