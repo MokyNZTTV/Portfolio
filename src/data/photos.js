@@ -24,4 +24,16 @@ export default [
     aperture: 'f/3.5',
     date: '2025-07-21'
   },
+  {
+    slug: 'first_orion_picture',
+    title: 'I was bored',
+    image: '/images/first_orion_picture.jpg',
+    description: 'I just wanted to get a picture, even though it was a full moon.<br>I don\'t know if I like it tbh',
+    camera: 'Canon EOS 1000D',
+    lens: 'Canon EF 100mm f/5.6',
+    exposure: '85x4s (5.66 minutes)',
+    iso: 'ISO 400',
+    aperture: 'f/5.6',
+    date: '2025-11-07'
+  },
 ];
