@@ -28,7 +28,7 @@ export default [
     slug: 'first_orion_picture',
     title: 'I was bored',
     image: '/images/first_orion_picture.jpg',
-    description: 'I just wanted to get a picture, even though it was a full moon.<br>I don\'t know if I like it tbh',
+    description: 'I just wanted to get a picture of orion, even though it was a full moon.<br>I don\'t know if I like it tbh',
     camera: 'Canon EOS 1000D',
     lens: 'Canon EF 100mm f/5.6',
     exposure: '85x4s (5.66 minutes)',
