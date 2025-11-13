@@ -1,20 +1,20 @@
 ---
-import photos from '../../data/photos.js';
+import aphotos from '../../../data/astro-photos.js';
 
 export async function getStaticPaths() {
-  return photos.map(photo => ({
-    params: { slug: photo.slug }
+  return aphotos.map(aphoto => ({
+    params: { slug: aphoto.slug }
   }));
 }
 
 const { slug } = Astro.params;
-const photo = photos.find(p => p.slug === slug);
-if (!photo) throw new Error(`Photo not found: ${slug}`);
+const aphoto = aphotos.find(p => p.slug === slug);
+if (!aphoto) throw new Error(`Photo not found: ${slug}`);
 ---
 
 <html>
   <head>
-    <title>MokyNZ's Portfolio | {photo.title}</title>
+    <title>MokyNZ's Portfolio | {aphoto.title}</title>
     <style>
       body {
         background: #000;
@@ -108,20 +108,20 @@ if (!photo) throw new Error(`Photo not found: ${slug}`);
     </header>
     <main>
       <a class="back-link" href="/">&larr; Back to Gallery</a>
-      <h1>{photo.title}</h1>
-      <img src={photo.image} alt={photo.title} />
-      <p set:html={photo.description}></p>
+      <h1>{aphoto.title}</h1>
+      <img src={aphoto.image} alt={aphoto.title} />
+      <p set:html={aphoto.description}></p>
       <h2>Shot Info</h2>
       <ul>
-        <li><strong>Camera:</strong> {photo.camera}</li>
-        <li><strong>Lens:</strong> {photo.lens}</li>
-        <li><strong>Exposure:</strong> {photo.exposure}</li>
-        <li><strong>Focal Length:</strong> {photo.focal_length}</li>
-        <li><strong>Aperture:</strong> {photo.aperture}</li>
-        <li><strong>ISO:</strong> {photo.iso}</li>
-        <li><strong>Date:</strong> {photo.date}</li>
+        <li><strong>Camera:</strong> {aphoto.camera}</li>
+        <li><strong>Lens:</strong> {aphoto.lens}</li>
+        <li><strong>Exposure:</strong> {aphoto.exposure}</li>
+        <li><strong>Focal Length:</strong> {aphoto.focal_length}</li>
+        <li><strong>Aperture:</strong> {aphoto.aperture}</li>
+        <li><strong>ISO:</strong> {aphoto.iso}</li>
+        <li><strong>Date:</strong> {aphoto.date}</li>
       </ul>
-      <a class="download-btn" href={photo.image} download>Download Photo</a>
+      <a class="download-btn" href={aphoto.image} download>Download Photo</a>
     </main>
   </body>
 </html>

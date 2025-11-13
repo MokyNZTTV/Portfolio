@@ -1,12 +1,13 @@
 ---
-import photos from '../data/photos.js';
+import aphotos from '../data/astro-photos.js';
+import bphotos from '../data/other-photos.js';
 ---
 
 <title>MokyNZ's Portfolio</title>
 
 <style>
   body {
-    background: #000;
+    background: #000000;
     color: #eee;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,7 +19,7 @@ import photos from '../data/photos.js';
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px solid #68166f;
     font-family: sans-serif;
     background: #111;
   }
@@ -26,7 +27,7 @@ import photos from '../data/photos.js';
   .site-title {
     font-weight: bold;
     font-size: 1.5rem;
-    color: #eee;
+    color: #68166f;
   }
 
   nav a {
@@ -37,7 +38,7 @@ import photos from '../data/photos.js';
   }
 
   nav a:hover {
-    color: #66ccff;
+    color: #68166f;
   }
 
   main {
@@ -56,7 +57,7 @@ import photos from '../data/photos.js';
   a.card {
     color: #eee;
     text-decoration: none;
-    border: 1px solid #444;
+    border: 2px solid #444;
     border-radius: 8px;
     overflow: hidden;
     display: block;
@@ -65,7 +66,7 @@ import photos from '../data/photos.js';
   }
 
   a.card:hover {
-    border-color: #66ccff;
+    border-color: #68166f;
   }
 
   img {
@@ -90,10 +91,19 @@ import photos from '../data/photos.js';
 
 <main>
   <div class="grid">
-    {photos.map(photo => (
-      <a class="card" href={`/photos/${photo.slug}`}>
-        <img src={photo.image} alt={photo.title} />
-        <h2>{photo.title}</h2>
+    {aphotos.map(aphoto => (
+      <a class="card" href={`/photos/astro/${aphoto.slug}`}>
+        <img src={aphoto.preview} alt={aphoto.title} />
+        <h2>{aphoto.title}</h2>
+      </a>
+    ))}
+  </div>
+  <hr class="site-title" style="border:1px solid #68166f">
+  <div class="grid">
+    {bphotos.map(bphoto => (
+      <a class="card" href={`/photos/other/${bphoto.slug}`}>
+        <img src={bphoto.preview} alt={bphoto.title} />
+        <h2>{bphoto.title}</h2>
       </a>
     ))}
   </div>
