@@ -118,4 +118,18 @@ export default [
     iso: 'ISO 400',
     date: '2025-08-18'
   },
+  {
+    slug: 'trees',
+    title: 'some trees ig',
+    preview: '/images/other/its-not-even-focused-preview.jpg',
+    image: '/images/other/its-not-even-focused.jpg',
+    description: 'I took a photo of some trees, and I missed focus',
+    camera: 'Canon EOS 1000D',
+    lens: 'Canon 18-55mm f/3.5-5.6 IS',
+    exposure: '1/800 sec',
+    focal_length: '18mm',
+    aperture: 'f/5.6',
+    iso: 'ISO 1600',
+    date: '2025-12-13'
+  },
 ];
